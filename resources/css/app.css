@@ -1,0 +1,344 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Import Google Fonts for Arabic */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/* Import FontAwesome */
+@import '@fortawesome/fontawesome-free/css/all.min.css';
+
+/* Base styles */
+@layer base {
+    html {
+        font-family: 'Cairo', 'Figtree', system-ui, sans-serif;
+        direction: rtl;
+    }
+    
+    body {
+        @apply bg-gray-50 text-gray-900 antialiased;
+        font-family: 'Cairo', 'Figtree', system-ui, sans-serif;
+    }
+    
+    /* Arabic text optimization */
+    .arabic-text {
+        font-family: 'Cairo', 'Amiri', sans-serif;
+        line-height: 1.8;
+        letter-spacing: 0.025em;
+    }
+    
+    /* Headings */
+    h1, h2, h3, h4, h5, h6 {
+        @apply font-semibold text-gray-900;
+        font-family: 'Cairo', sans-serif;
+    }
+    
+    h1 { @apply text-3xl lg:text-4xl; }
+    h2 { @apply text-2xl lg:text-3xl; }
+    h3 { @apply text-xl lg:text-2xl; }
+    h4 { @apply text-lg lg:text-xl; }
+    h5 { @apply text-base lg:text-lg; }
+    h6 { @apply text-sm lg:text-base; }
+    
+    /* Links */
+    a {
+        @apply text-primary-600 hover:text-primary-700 transition-colors duration-200;
+    }
+    
+    /* Form elements */
+    input, textarea, select {
+        @apply border-gray-300 focus:border-primary-500 focus:ring-primary-500 rounded-lg;
+    }
+    
+    /* Buttons */
+    .btn {
+        @apply inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-lg font-medium text-sm transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
+    }
+    
+    .btn-primary {
+        @apply bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500;
+    }
+    
+    .btn-secondary {
+        @apply bg-gray-600 text-white hover:bg-gray-700 focus:ring-gray-500;
+    }
+    
+    .btn-success {
+        @apply bg-success-600 text-white hover:bg-success-700 focus:ring-success-500;
+    }
+    
+    .btn-warning {
+        @apply bg-warning-600 text-white hover:bg-warning-700 focus:ring-warning-500;
+    }
+    
+    .btn-danger {
+        @apply bg-danger-600 text-white hover:bg-danger-700 focus:ring-danger-500;
+    }
+    
+    .btn-outline {
+        @apply bg-transparent border-2 border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white;
+    }
+    
+    /* Cards */
+    .card {
+        @apply bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden;
+    }
+    
+    .card-header {
+        @apply px-6 py-4 border-b border-gray-200 bg-gray-50;
+    }
+    
+    .card-body {
+        @apply px-6 py-4;
+    }
+    
+    .card-footer {
+        @apply px-6 py-4 border-t border-gray-200 bg-gray-50;
+    }
+}
+
+/* Component styles */
+@layer components {
+    /* Navigation */
+    .nav-link {
+        @apply flex items-center px-4 py-2 text-sm font-medium rounded-lg transition-colors duration-200;
+    }
+    
+    .nav-link.active {
+        @apply bg-primary-100 text-primary-700;
+    }
+    
+    .nav-link:hover {
+        @apply bg-gray-100 text-gray-900;
+    }
+    
+    /* Quiz styles */
+    .quiz-question {
+        @apply bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-6;
+    }
+    
+    .quiz-option {
+        @apply flex items-start p-4 rounded-lg border-2 border-gray-200 cursor-pointer transition-all duration-200 hover:border-primary-300 hover:bg-primary-50;
+    }
+    
+    .quiz-option.selected {
+        @apply border-primary-500 bg-primary-50;
+    }
+    
+    .quiz-option.correct {
+        @apply border-success-500 bg-success-50;
+    }
+    
+    .quiz-option.incorrect {
+        @apply border-danger-500 bg-danger-50;
+    }
+    
+    /* Course styles */
+    .course-card {
+        @apply bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow duration-300;
+    }
+    
+    .course-thumbnail {
+        @apply w-full h-48 object-cover;
+    }
+    
+    .course-content {
+        @apply p-6;
+    }
+    
+    .course-title {
+        @apply text-xl font-semibold text-gray-900 mb-2;
+    }
+    
+    .course-description {
+        @apply text-gray-600 text-sm mb-4 line-clamp-3;
+    }
+    
+    .course-meta {
+        @apply flex items-center justify-between text-sm text-gray-500;
+    }
+    
+    /* Progress bars */
+    .progress-bar {
+        @apply w-full bg-gray-200 rounded-full h-2;
+    }
+    
+    .progress-fill {
+        @apply bg-primary-600 h-2 rounded-full transition-all duration-300;
+    }
+    
+    /* Badges */
+    .badge {
+        @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+    }
+    
+    .badge-primary {
+        @apply bg-primary-100 text-primary-800;
+    }
+    
+    .badge-success {
+        @apply bg-success-100 text-success-800;
+    }
+    
+    .badge-warning {
+        @apply bg-warning-100 text-warning-800;
+    }
+    
+    .badge-danger {
+        @apply bg-danger-100 text-danger-800;
+    }
+    
+    .badge-gray {
+        @apply bg-gray-100 text-gray-800;
+    }
+    
+    /* Alerts */
+    .alert {
+        @apply p-4 rounded-lg border;
+    }
+    
+    .alert-success {
+        @apply bg-success-50 border-success-200 text-success-800;
+    }
+    
+    .alert-warning {
+        @apply bg-warning-50 border-warning-200 text-warning-800;
+    }
+    
+    .alert-danger {
+        @apply bg-danger-50 border-danger-200 text-danger-800;
+    }
+    
+    .alert-info {
+        @apply bg-primary-50 border-primary-200 text-primary-800;
+    }
+    
+    /* Loading spinner */
+    .spinner {
+        @apply animate-spin rounded-full border-4 border-gray-300 border-t-primary-600;
+    }
+    
+    /* Dropdown */
+    .dropdown-menu {
+        @apply absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-1 z-50;
+    }
+    
+    .dropdown-item {
+        @apply block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors duration-200;
+    }
+    
+    /* Modal */
+    .modal-overlay {
+        @apply fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4;
+    }
+    
+    .modal-content {
+        @apply bg-white rounded-xl shadow-xl max-w-md w-full max-h-screen overflow-y-auto;
+    }
+    
+    /* Sidebar */
+    .sidebar {
+        @apply fixed inset-y-0 right-0 z-50 w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out;
+    }
+    
+    .sidebar.closed {
+        @apply translate-x-full;
+    }
+    
+    /* Table */
+    .table {
+        @apply min-w-full divide-y divide-gray-200;
+    }
+    
+    .table th {
+        @apply px-6 py-3 bg-gray-50 text-right text-xs font-medium text-gray-500 uppercase tracking-wider;
+    }
+    
+    .table td {
+        @apply px-6 py-4 whitespace-nowrap text-sm text-gray-900;
+    }
+    
+    .table tbody tr:hover {
+        @apply bg-gray-50;
+    }
+}
+
+/* Utility styles */
+@layer utilities {
+    .text-gradient {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    
+    .bg-gradient-primary {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    
+    .bg-gradient-medical {
+        background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+    }
+    
+    /* Line clamp utilities */
+    .line-clamp-1 {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+    }
+    
+    .line-clamp-2 {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+    }
+    
+    .line-clamp-3 {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+    }
+    
+    /* Custom scrollbar */
+    .custom-scrollbar::-webkit-scrollbar {
+        width: 6px;
+    }
+    
+    .custom-scrollbar::-webkit-scrollbar-track {
+        background: #f1f5f9;
+        border-radius: 3px;
+    }
+    
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 3px;
+    }
+    
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8;
+    }
+}
+
+/* Print styles */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+    
+    .print-break {
+        page-break-after: always;
+    }
+    
+    body {
+        font-size: 12pt;
+        line-height: 1.5;
+    }
+    
+    .card {
+        box-shadow: none;
+        border: 1px solid #000;
+    }
+}

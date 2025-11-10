@@ -1,0 +1,13 @@
+
+
+#Ignore windsurf AI rules
+.windsurfrules
+
+
+#Ignore vscode AI rules
+.github/instructions/codacy.instructions.md
+node_modules
+
+
+#Ignore cursor AI rules
+.cursor/rules/codacy.mdc
