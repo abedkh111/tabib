@@ -11,3 +11,7 @@ node_modules
 
 #Ignore cursor AI rules
 .cursor/rules/codacy.mdc
+
+# SSH keys
+abedkhalaf
+abedkhalaf.pub
